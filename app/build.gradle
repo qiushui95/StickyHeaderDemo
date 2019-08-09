@@ -2,6 +2,8 @@ apply plugin: "com.android.application"
 
 apply plugin: "kotlin-android"
 
+apply plugin: "kotlin-kapt"
+
 apply plugin: "kotlin-android-extensions"
 
 android {
@@ -20,6 +22,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -53,4 +59,6 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0-beta02'
     //gson
     implementation 'com.google.code.gson:gson:2.8.5'
+    //drawable生成器
+    implementation 'com.noober.background:core:1.5.3'
 }
