@@ -19,6 +19,24 @@ class MainViewModel(private val areaRepository: AreaRepository) : BaseViewModel(
 
     fun provinceAndCityList(): LiveData<List<AreaInfo>> = provinceAndCityList
 
+    fun getCurrentParent(position: Int): AreaInfo? = provinceAndCityList.value?.let { list ->
+        list.getOrNull(position)?.let { current ->
+            current.takeIf {
+                it.isParent
+            } ?: list.firstOrNull {
+                it.id == current.parentId
+            }
+        }
+    }
+
+    fun getPositionById(id: String) = provinceAndCityList.value?.run {
+        indexOfFirst {
+            it.id == id
+        }.takeIf {
+            it >= 0
+        }
+    }?: 0
+
     init {
         viewModelScope.launch(Dispatchers.Default) {
             provinceAndCityList.postValue(areaRepository.getProvinceAndCity())

@@ -16,12 +16,20 @@
         tools:context=".ui.main.MainActivity">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProvinceAndCity"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:itemBinding="@{viewModel.itemBinding}"
             app:items="@{viewModel.provinceAndCityList()}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/item_area_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -11,5 +11,5 @@ data class AreaInfo(
         val name: String,
         @SerializedName("parentId")
         val parentId: String,
-        val isParent: Boolean = false
+        val isParent: Boolean
 )

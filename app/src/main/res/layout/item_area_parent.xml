@@ -11,9 +11,11 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clItemParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#90EE90">
+        android:background="#90EE90"
+        android:tag="@{data.id}">
 
         <TextView
             android:layout_width="wrap_content"
